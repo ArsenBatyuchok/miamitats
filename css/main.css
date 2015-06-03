@@ -1,0 +1,1023 @@
+/* Fonts Declaration */
+@font-face {
+    font-family: 'bebas_neue_bold';
+    src: url('../fonts/bebasneue_bold-webfont.eot');
+    src: url('../fonts/bebasneue_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bebasneue_bold-webfont.woff') format('woff'),
+         url('../fonts/bebasneue_bold-webfont.ttf') format('truetype'),
+         url('../fonts/bebasneue_bold-webfont.svg#bebas_neuebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'bebas_neue_book';
+    src: url('../fonts/bebasneue_book-webfont.eot');
+    src: url('../fonts/bebasneue_book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bebasneue_book-webfont.woff') format('woff'),
+         url('../fonts/bebasneue_book-webfont.ttf') format('truetype'),
+         url('../fonts/bebasneue_book-webfont.svg#bebas_neuebook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'bebas_neue_regular';
+    src: url('../fonts/bebasneue_regular-webfont.eot');
+    src: url('../fonts/bebasneue_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bebasneue_regular-webfont.woff') format('woff'),
+         url('../fonts/bebasneue_regular-webfont.ttf') format('truetype'),
+         url('../fonts/bebasneue_regular-webfont.svg#bebas_neue_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* END Fonts Declaration */
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.fullwidth {
+    width: 100%;
+}
+.halfwidth {
+    width: 48%;
+}
+.halfwidth.margin {
+    margin-right: 4%;
+}
+.f-left {
+    float: left;
+}
+.f-right {
+    float: right;
+}
+.o-hid {
+    overflow: hidden;
+}
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+body {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    color: #262626;
+    padding: 10px;
+}
+p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+.v-align {
+    display: table-cell;
+    vertical-align: middle;
+}
+.section {
+    padding: 10px;
+}
+.frame {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.section-inner {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.frame .price {
+    font-size: 24px;
+    font-family: 'bebas_neue_book';
+    text-transform: uppercase;
+    margin-top: 5px;
+    position: relative;
+}
+.frame .price .bold {
+    font-family: 'bebas_neue_bold';
+}
+.set {
+    background: url('../img/set.png') no-repeat 0 0;
+    background-size: cover;
+    height: 174px;
+    width: 174px;
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.fp-scrollable {
+    height: 100%;
+    overflow: auto;
+}
+.section > .set {
+    margin: 0;
+}
+.selected-bar {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    width: 100%;
+    height: 52px;
+    background-color: rgba(160, 160, 160, 0.8);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+}
+.selected-bar.visible {
+    opacity: 1;
+}
+.selected-bar .message {
+    font-family: 'bebas_neue_book';
+    font-size: 16px;
+    color: #fff;
+    float: right;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+.selected-bar .message .bold {
+    font-family: 'bebas_neue_regular';
+}
+.selected-bar button {
+    font-size: 16px;
+    padding: 5px 26px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+
+/* Gradients, Buttons */
+.buy-btn, .proceed-btn, .pay-btn {
+    background: #ecc73f;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ecc73f), color-stop(100%,#d98900));
+    background: -webkit-linear-gradient(top,  #ecc73f 0%,#d98900 100%);
+    background: linear-gradient(to bottom,  #ecc73f 0%,#d98900 100%);
+    border: none;
+    text-transform: uppercase;
+    font-family: 'bebas_neue_regular';
+    font-size: 16px;
+    border-radius: 40px;
+    color: #FFF;
+    font-size: 36px;
+    padding: 5px 43px;
+}
+.buy-btn:hover, .proceed-btn:hover {
+    background: #ecc73f;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ecc73f), color-stop(100%,#d37b00));
+    background: -webkit-linear-gradient(top,  #ecc73f 0%,#d37b00 100%);
+    background: linear-gradient(to bottom,  #ecc73f 0%,#d37b00 100%);
+}
+.buy-btn:active, .proceed-btn:active {
+    background: #d37b00;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d37b00), color-stop(100%,#ecc73f));
+    background: -webkit-linear-gradient(top,  #d37b00 0%,#ecc73f 100%);
+    background: linear-gradient(to bottom,  #d37b00 0%,#ecc73f 100%);
+}
+.buy-btn:active, .buy-btn:focus, .proceed-btn:active, .proceed-btn:focus {
+    outline: none;
+}
+.buy-btn.blue {
+    background: #89D7E3;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#89D7E3), color-stop(100%,#52BED2));
+    background: -webkit-linear-gradient(top,  #89D7E3 0%,#52BED2 100%);
+    background: linear-gradient(to bottom,  #89D7E3 0%,#52BED2 100%);
+}
+.buy-btn.blue:hover {
+    background: #89D7E3;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#89D7E3), color-stop(100%,#38AFC4));
+    background: -webkit-linear-gradient(top,  #89D7E3 0%,#38AFC4 100%);
+    background: linear-gradient(to bottom,  #89D7E3 0%,#38AFC4 100%);
+}
+.buy-btn.blue:active {
+    background: #38AFC4;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#38AFC4), color-stop(100%,#89D7E3));
+    background: -webkit-linear-gradient(top,  #38AFC4 0%,#89D7E3 100%);
+    background: linear-gradient(to bottom,  #38AFC4 0%,#89D7E3 100%);
+}
+.buy-btn.pink,
+.pay-btn {
+    background: #FFBAD6;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFBAD6), color-stop(100%,#FF76AF));
+    background: -webkit-linear-gradient(top,  #FFBAD6 0%,#FF76AF 100%);
+    background: linear-gradient(to bottom,  #FFBAD6 0%,#FF76AF 100%);
+}
+.buy-btn.pink:hover,
+.pay-btn:hover {
+    background: #FFBAD6;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFBAD6), color-stop(100%,#F95C9D));
+    background: -webkit-linear-gradient(top,  #FFBAD6 0%,#F95C9D 100%);
+    background: linear-gradient(to bottom,  #FFBAD6 0%,#F95C9D 100%);
+}
+.buy-btn.pink:active,
+.pay-btn:active {
+    background: #F95C9D;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F95C9D), color-stop(100%,#FFBAD6));
+    background: -webkit-linear-gradient(top,  #F95C9D 0%,#FFBAD6 100%);
+    background: linear-gradient(to bottom,  #F95C9D 0%,#FFBAD6 100%);
+}
+.buy-btn.orange {
+    background: #F9B664;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F9B664), color-stop(100%,#F56E1A));
+    background: -webkit-linear-gradient(top,  #F9B664 0%,#F56E1A 100%);
+    background: linear-gradient(to bottom,  #F9B664 0%,#F56E1A 100%);
+}
+.buy-btn.orange:hover {
+    background: #F9B664;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F9B664), color-stop(100%,#E56718));
+    background: -webkit-linear-gradient(top,  #F9B664 0%,#E56718 100%);
+    background: linear-gradient(to bottom,  #F9B664 0%,#E56718 100%);
+}
+.buy-btn.orange:active {
+    background: #E56718;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E56718), color-stop(100%,#F9B664));
+    background: -webkit-linear-gradient(top,  #E56718 0%,#F9B664 100%);
+    background: linear-gradient(to bottom,  #E56718 0%,#F9B664 100%);
+}
+.buy-btn:disabled, .buy-btn[disabled],
+.buy-btn:disabled:hover, .buy-btn[disabled]:hover,
+.buy-btn:disabled:active, .buy-btn[disabled]:active {
+    background: #DADADA;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DADADA), color-stop(100%,#B5B5B5));
+    background: -webkit-linear-gradient(top,  #DADADA 0%,#B5B5B5 100%);
+    background: linear-gradient(to bottom,  #DADADA 0%,#B5B5B5 100%);
+}
+/* END Gradients, Buttons */
+
+
+
+/* Section Banner */
+.banner .section-inner .bg {
+    background: url('../img/bg-1.jpg') no-repeat 0 0;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.banner .frame {
+    background: url('../img/curve-bg-1.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 528px;
+    height: 526px;
+    padding: 27px 20px 0;
+}
+
+.banner .frame hr {
+    width: 200px;
+    margin: 25px auto 20px;
+}
+.banner .frame p {
+    padding: 0 50px;
+}
+.frame .logo {
+    background: url('../img/logo.svg') no-repeat 0 0;
+    width: 458px;
+    height: 308px;
+    margin: 0 auto;
+}
+/* END Section Banner */
+
+
+
+/* Section Rock You */
+.rock-you .bg-wrapper {
+    width: 40%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+.rock-you .bg {
+    height: 100%;
+    width: 100%;
+    background: url('../img/bg-2.jpg') no-repeat 50% 0;
+    background-size: cover;
+}
+.rock-you .frame-wrapper {
+    width: 60%;
+    float: left;
+    height: 100%;
+    background: url('../img/bg-3.jpg') no-repeat 0 0;
+    position: relative;
+    background-size: cover;
+}
+.rock-you .frame {
+    background: url('../img/curve-bg-2.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 528px;
+    height: 586px;
+    padding: 235px 50px 0;
+}
+.rock-you .frame .set-name {
+    background: url('../img/rock-you.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 354px;
+    height: 236px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+/* END Section Rock You */
+
+
+
+/* END Section Bohemique */
+.bohemique .section-inner {
+    overflow: hidden;
+}
+.bohemique .section-inner .bg {
+    background: url('../img/bg-4.jpg') no-repeat 0 0;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.bohemique .frame {
+    background: url('../img/curve-bg-3.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 468px;
+    height: 632px;
+    margin-left: 70px;
+}
+.bohemique .frame .set-name {
+    background: url('../img/bohemique.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 406px;
+    height: 202px;
+    margin: 36px auto 0;
+}
+.bohemique .desc {
+    padding: 0 70px;
+}
+.bohemique .set {
+    bottom: -50px;
+}
+/* END Section Bohemique */
+
+
+
+/* Section Hands */
+.hands .bg-wrapper {
+    width: 40%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+.hands .bg {
+    height: 100%;
+    width: 100%;
+    background: url('../img/bg-5.jpg') no-repeat 50% 0;
+    background-size: cover;
+}
+.hands .frame-wrapper {
+    width: 60%;
+    float: left;
+    height: 100%;
+    background: url('../img/bg-6.jpg') no-repeat 0 0;
+    position: relative;
+    background-size: cover;
+}
+.hands .frame {
+    background: url('../img/curve-bg-4.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 608px;
+    height: 535px;
+    padding: 0 50px 0;
+}
+.hands .frame .set-name {
+    background: url('../img/hands.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 302px;
+    height: 147px;
+    margin: 50px auto 0;
+}
+.hands .desc {
+    padding: 0 60px;
+}
+.hands .frame .set {
+    bottom: -90px;
+}
+/* END Section Hands */
+
+
+
+/* END Section Funny Girl */
+.funnygirl .section-inner {
+    overflow: hidden;
+}
+.funnygirl .section-inner .bg {
+    background: url('../img/bg-7.jpg') no-repeat 0 0;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.funnygirl .frame {
+    background: url('../img/curve-bg-5.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 608px;
+    height: 595px;
+    margin-left: 70px;
+}
+.funnygirl .frame .set-name {
+    background: url('../img/funny-girl.png') no-repeat 0 0;
+    background-size: 100%;
+    width: 361px;
+    height: 211px;
+    margin: 36px auto 0;
+}
+.funnygirl .desc {
+    padding: 0 70px;
+}
+.funnygirl .set {
+    bottom: -55px;
+}
+/* END Section Funny Girl */
+
+
+
+/* Instafeed and Footer */
+.instafeed-wrapper {
+    overflow: hidden;
+    max-height: 150px;
+    border-top: 10px solid #fff;
+}
+#instafeed {
+    width: 9999px;
+}
+#instafeed a {
+    display: inline-block;
+}
+.footer {
+    background: url('../img/footer-bg.jpg') no-repeat 50% 50%;
+    background-size: cover;
+    overflow: hidden;
+    color: #362F28;
+    padding: 55px 100px;
+}
+.footer .logo-holder,
+.footer .links,
+.footer .insta-message,
+.footer .social {
+    float: left;
+}
+.footer .logo-holder {
+    overflow: hidden;
+    width: 20%;
+}
+.footer .logo {
+    background: url('../img/logo.svg') no-repeat 0 0;
+    width: 133px;
+    height: 89px;
+    background-size: cover;
+}
+.footer .links {
+    margin-top: 40px;
+    width: 20%;
+}
+.footer .links a {
+    font-family: 'bebas_neue_book';
+    text-transform: uppercase;
+    font-size: 24px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #362F28;
+}
+.footer .links a:hover {
+    text-decoration: none;
+}
+.footer .insta-message {
+    font-family: 'bebas_neue_book';
+    font-size: 20px;
+    line-height: 0.9;
+    margin-top: 26px;
+    width: 45%;
+}
+.footer .insta-message .large {
+    font-family: 'bebas_neue_bold';
+    font-size: 50px;
+    line-height: 0.85;
+}
+.footer .insta-message .small {
+    letter-spacing: 0.7px;
+}
+.footer .insta-message span {
+    font-family: 'bebas_neue_regular';
+    text-decoration: none;
+    color: #362F28;
+}
+.footer .social {
+    margin-top: 20px;
+    width: 15%;
+    text-align: right;
+}
+.footer .fb, .footer .ig {
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+}
+.footer .fb {
+    background: url('../img/icon-facebook.png') no-repeat 0 0;
+    background-size: 100%;
+    margin-right: 10px;
+}
+.footer .ig {
+    background: url('../img/icon-instagram.png') no-repeat 0 0;
+    background-size: 100%;
+}
+/* END Instafeed and Footer */
+
+
+
+/* Popup Styles */
+.popup-wrapper {
+    background: url("../img/backdrop-bg.jpg") no-repeat 0 0;
+    background-size: cover;
+    border: 10px solid #fff;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.popup-wrapper.active {
+    display: table;
+}
+.popup-wrapper.active.visible {
+    opacity: 1;
+}
+.popup-wrapper .popup {
+    vertical-align: middle;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.popup-wrapper .popup.visible {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+}
+.popup-wrapper .popup-content {
+    min-height: 454px;
+    background-color: #fff;
+    border-radius: 17px;
+    overflow: hidden;
+    margin: 0 30px;
+}
+.popup-wrapper .img-holder, .popup-wrapper .text-holder {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+.popup-wrapper .text-holder {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 40px 45px 45px;
+}
+.popup-wrapper .img-holder.about-us-img {
+    background: url('../img/bg-8.png') no-repeat 0 0;
+    background-size: cover;
+}
+.popup-wrapper .popup-content h2 {
+    color: #362F28;
+    font-size: 50px;
+    font-family: 'bebas_neue_bold';
+    margin: 0;
+}
+.popup-wrapper .popup-content .hr {
+    width: 60%;
+    border-top: 7px solid #362F28;
+    margin-bottom: 20px;
+}
+.popup-wrapper .popup-content p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.popup-wrapper .popup-logo {
+    background: url('../img/logo-white.svg') no-repeat 0 0;
+    background-size: cover;
+    width: 100px;
+    height: 67px;
+    position: absolute;
+    top: -90px;
+    left: 30px;
+}
+.popup-wrapper .popup-dismiss {
+    background: url('../img/icon-close.png') no-repeat 0 0;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    cursor: pointer;
+}
+.popup-wrapper .img-holder.set-img {
+    width: 100%;
+    height: 100%;
+    display: block !important;
+}
+.popup-wrapper .img-holder.set-img.rock-you-set {
+    background: url('../img/rock-you-set.png') no-repeat 0 0;
+    background-size: cover;
+}
+.popup-wrapper .img-holder.set-img.bohemique-set {
+    background: url('../img/bohemique-set.png') no-repeat 0 0;
+    background-size: cover;
+}
+.popup-wrapper .img-holder.set-img.hands-set {
+    background: url('../img/hands-set.png') no-repeat 0 0;
+    background-size: cover;
+}
+.popup-wrapper .img-holder.set-img.funnygirl-set {
+    background: url('../img/funnygirl-set.png') no-repeat 0 0;
+    background-size: cover;
+}
+/* END Popup Styles */
+
+
+
+/* Order Popup Styles */
+.popup-wrapper .order-popup {
+    max-width: 1010px;
+}
+.order-popup .popup-body {
+    padding-left: 55px;
+    padding-right: 55px;
+    margin-top: 50px;
+    padding-bottom: 40px;
+}
+.order-popup .popup-content h2 {
+    font-family: 'bebas_neue_book';
+    font-size: 50px;
+    margin-left: 55px;
+    position: relative;
+    top: 38px;
+    display: inline-block;
+    color: #404040;
+}
+.order-popup .popup-content h2 span {
+    position: relative;
+
+}
+.order-popup .popup-content h2:before {
+    content: " ";
+    content: " ";
+    width: 115%;
+    height: 68px;
+    margin-left: -7.5%;
+    background-color: #fff;
+    position: absolute;
+    z-index: 0;
+    transform: skewX(-10deg);
+    -webkit-transform: skewX(-10deg);
+}
+.order-popup .popup-content .hr {
+    width: 100%;
+    border-color: #FE8AB9;
+}
+.order-popup .order-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.order-popup .order-section {
+    font-family: 'bebas_neue_book';
+    font-size: 21px;
+    width: 280px;
+    position: absolute;
+}
+.order-popup .order-item {
+    position: relative;
+    border-bottom: 1px dashed #DBDBDB;
+    height: 40px;
+    line-height: 40px;
+}
+.order-popup .order-details {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.order-popup .order-details > div {
+    float: left;
+}
+.order-popup .order-item-price {
+    min-width: 70px;
+    text-align: right;
+}
+.order-popup .order-item-quantity {
+    font-family: 'bebas_neue_regular';
+}
+.order-popup .order-controls {
+    position: relative;
+    margin-left: 10px;
+}
+.order-popup .order-controls a {
+    height: 20px;
+    width: 20px;
+    display: block;
+    position: relative;
+}
+.order-popup .order-controls a:before {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.order-popup .order-controls .add:before {
+    border-width: 0 7px 7px 7px;
+    border-color: transparent transparent #fe8ab9 transparent;
+    bottom: 4px;
+}
+.order-popup .order-controls .subtract:before {
+    border-width: 7px 7px 0 7px;
+    border-color: #fe8ab9 transparent transparent transparent;
+    top: 4px;
+
+}
+.order-popup .form-wrapper {
+    padding-left: 310px;
+}
+.order-popup .order-total {
+    font-size: 24px;
+    font-family: 'bebas_neue_regular';
+    margin-top: 20px;
+    text-align: right;
+}
+.order-popup .input-wrapper {
+    height: 60px;
+    border: 1px solid #979797;
+    border-radius: 40px;
+    padding: 0 20px;
+}
+.mt-input {
+    height: 58px;
+    border: none;
+    font-size: 18px;
+    color: #373737;
+    font-family: 'bebas_neue_book';
+    border-radius: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background: none;
+    max-width: 100%;
+}
+.mt-select {
+    border: none;
+    background: none;
+    -webkit-appearance: none;
+    font-family: 'bebas_neue_book';
+    display: block;
+    width: 100%;
+}
+.mt-select:active,
+.mt-select:focus {
+    outline: none;
+}
+.mt-input:focus, .mt-input:active {
+    outline: none;
+}
+.mt-switcher {
+    position: absolute;
+    left: -9999px;
+}
+.mt-switcher + label {
+    height: 40px;
+    border: 1px solid #979797;
+    border-radius: 40px;
+    display: block;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'bebas_neue_regular';
+    font-size: 16px;
+    position: relative;
+    margin-top: 10px;
+    left: -2px;
+}
+.mt-switcher + label .switch-btn {
+    background: #F2F2F2;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F2F2F2), color-stop(100%,#DBDBDB));
+    background: -webkit-linear-gradient(top,  #F2F2F2 0%,#DBDBDB 100%);
+    background: linear-gradient(to bottom,  #F2F2F2 0%,#DBDBDB 100%);
+    border: none;
+    border-radius: 40px;
+    width: 50%;
+    height: 42px;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    transition: all 0.2s ease;
+}
+.mt-switcher:checked + label .switch-btn {
+    left: 100%;
+    margin-left: -49%;
+}
+.mt-switcher + label .checkbox-true,
+.mt-switcher + label .checkbox-false {
+    position: absolute;
+    transition: color 0.2s ease;
+    -webkit-transition: color 0.2s ease;
+    font-family: 'bebas_neue_book';
+    font-size: 16px;
+    height: 42px;
+    line-height: 42px;
+    width: 50%;
+    text-align: center;
+}
+.mt-switcher + label .checkbox-false {
+    right: 0;
+}
+.mt-switcher + label .checkbox-true,
+.mt-switcher:checked + label .checkbox-false {
+    color: #000000;
+}
+.mt-switcher:checked + label .checkbox-true,
+.mt-switcher + label .checkbox-false {
+    color: #A7A7A7;
+}
+.order-popup .form {
+    overflow: hidden;
+}
+.order-popup .email-label,
+.order-popup .phone-label,
+.order-popup .country-label,
+.order-popup .city-label {
+    width: 33%;
+    display: block;
+    float: left;
+}
+.order-popup .street-label {
+    width: 45%;
+    display: block;
+    float: left;
+}
+.order-popup .postal-label {
+    width: 21%;
+    display: block;
+    float: left;
+}
+.order-popup .select-label {
+    width: 100%;
+    display: block;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.order-popup .select-label:after {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #000000 transparent transparent transparent;
+    position: absolute;
+    top: 45%;
+    right: 10px;
+}
+.order-popup .mt-select {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+.form-row {
+    margin-bottom: 20px;
+}
+.order-popup .switcher-wrapper {
+    float: right;
+    width: 280px;
+}
+.order-popup .pay-btn {
+    margin-left: 20px;
+}
+/* END Order Popup Styles */
+
+
+
+/* Fullpage Nav Styling */
+#fp-nav ul li a span {
+    background: #F3B22A;
+}
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a.active span {
+    border: 2px solid #fff;
+    margin: -6px 0 0 -7px;
+}
+#fp-nav ul li {
+}
+#fp-nav ul li a span {
+    border: 1px solid #fff;
+}
+/* END Fullpage Nav Styling */
+
+
+
+/* Banner animation */
+/*@-webkit-keyframes backgroundScale {
+    50% {
+        transform: scale(1.2, 1.2);
+        -webkit-transform: scale(1.2, 1.2);
+    }
+}
+@keyframes backgroundScale {
+    50% {
+        transform: scale(1.1, 1.1);
+        -webkit-transform: scale(1.1, 1.1);
+    }
+}
+.banner .section-inner .bg,
+.rock-you .bg,
+.bohemique .section-inner .bg,
+.hands .bg,
+.funnygirl .section-inner .bg {
+    -webkit-animation: backgroundScale 35s infinite !important;
+    -moz-animation: backgroundScale 35s infinite !important;
+    -ms-animation: backgroundScale 35s infinite !important;
+    -o-animation: backgroundScale 35s infinite !important;
+    animation: backgroundScale 35s infinite !important;
+}*/
+/* END Banner animation */
+
+
+
+
+
+
+
+input::-webkit-input-placeholder {
+   color: #373737;
+   transition: all 0.2s ease;
+}
+input:-moz-placeholder { /* Firefox 18- */
+   color: #373737;
+   transition: all 0.2s ease;
+}
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: #373737;
+   transition: all 0.2s ease;
+}
+input:-ms-input-placeholder {  
+   color: #373737;
+   transition: all 0.2s ease;
+}
+
+input:focus::-webkit-input-placeholder {
+   color: #CACACA;
+}
+input:focus:-moz-placeholder { /* Firefox 18- */
+   color: #CACACA;  
+}
+input:focus::-moz-placeholder {  /* Firefox 19+ */
+   color: #CACACA;  
+}
+input:focus:-ms-input-placeholder {  
+   color: #CACACA;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
