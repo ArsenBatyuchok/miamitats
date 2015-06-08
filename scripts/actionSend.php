@@ -25,6 +25,13 @@ if (!preg_match('/^[0-9]{2,10}$/', $_REQUEST['postal'])) {
     $errors['postal'] = 'Please enter a valid postal';
 }
 
+if ($_REQUEST['typeOfDelivery'] == 'false') {
+    if (empty($_REQUEST['selectType'])) {
+        $errors['selectType'] = 'Please enter delivery type';
+    }
+}
+
+
 foreach($_REQUEST as $key => &$value) {
     if (empty($value)) {
         $errors[$key] = $key.' cannot be blank.';
@@ -40,7 +47,14 @@ if ($errors) {
 $string = $_REQUEST['str'];
 $stringElements = explode('|', $string);
 
-$delivery = ($_REQUEST['typeOfDelivery'] == 'true')? 'самовывоз': 'доставка';
+//$delivery = ($_REQUEST['typeOfDelivery'] == 'true')? 'самовывоз': 'доставка';
+if ($_REQUEST['typeOfDelivery'] == 'true') {
+    $delivery = 'самовывоз';
+} else {
+    $delivery = 'доставка';
+    $typeDelivery = $_REQUEST['selectType'];
+}
+
 $pay = ($_REQUEST['pay'] == 'true')? 'оплата оффлайн' : 'оплата картой';
 $message = '<html>
         <head>
@@ -55,7 +69,7 @@ $message .= '<span style="font-weight: bold">Полное имя:</span> '.$_REQ
         .'<span style="font-weight: bold">Город: </span>'.$_REQUEST['city'].'<br>'
         .'<span style="font-weight: bold">Улица/дом: </span>'.$_REQUEST['street'].'<br>'
         .'<span style="font-weight: bold">Индекс: </span>'.$_REQUEST['postal'].'<br>'
-        .'<span style="font-weight: bold">Способ: </span>'.$delivery.'<br>'
+        .'<span style="font-weight: bold">Способ доставки: </span>'.$delivery.' '.$typeDelivery.'<br>'
         .'<span style="font-weight: bold">Способ оплаты: </span>'.$pay.'<br><br>'
         ;
 
@@ -92,11 +106,12 @@ $message .= '</body></html>';
 
 function sendEmail($message, $email){
     $mail = new PHPMailer();
+    $mail->CharSet = 'UTF-8';
     $mail->setFrom('alexandr.vasiliev@iqria.com');
     $mail->isHTML(true);
-    $mail->Subject = 'Продажа с сайта miamitats.com';
-    $mail->Body    = $message;
     $mail->addCustomHeader("Content-Type: text/html; charset=utf-8");
+    $mail->Subject = 'Продажа с сайта miamitats.com';
+    $mail->Body = $message;
     $mail->addAddress($email);
     return $mail->send();
 }

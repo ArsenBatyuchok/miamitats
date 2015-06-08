@@ -23,6 +23,7 @@ $(document).ready(function() {
             str += '|' + nameElements[i] + '|' + quantityElements[i] + '|' + priceElements[i];
         }
 
+
         var fullname = $('input#name').val(),
              email = $('input#email').val(),
              phone = $('input#phone').val(),
@@ -33,6 +34,7 @@ $(document).ready(function() {
              deliveryType = $('select#deliveryType').val(),
              typeOfDelivery = $('#deliveryCheckbox').is(":checked"),
              pay = $('#cardCheckbox').is(":checked"),
+             selectType = $('select#deliveryType').val(),
              data = {
                 fullname: fullname,
                 phone: phone,
@@ -44,7 +46,8 @@ $(document).ready(function() {
                 email: email,
                 deliveryType: deliveryType,
                 pay: pay,
-                typeOfDelivery: typeOfDelivery
+                typeOfDelivery: typeOfDelivery,
+                selectType: selectType
             };
 
         $.ajax({
@@ -85,16 +88,19 @@ $(document).ready(function() {
 
 
     $('input#deliveryCheckbox').click(function(){
-        var state = $('#deliveryCheckbox').is(":checked");
+        var state = $('#deliveryCheckbox').is(":checked"),
+            type = $('div#selectDeliveryType');
+
         if (state) {
             $('li#deliver').css('display', 'none');
             var price = $('span.order-total-amount').text();
             $('span.order-total-amount').text(parseInt(price)-600);
+            type.css('display', 'none');
         } else {
             $('li#deliver').css('display', 'block');
             var price = $('span.order-total-amount').text();
-
             $('span.order-total-amount').text(parseInt(price)+600);
+            type.css('display', 'block');
         }
     });
 
@@ -270,13 +276,11 @@ $(document).ready(function() {
 
         setTimeout(function() {
             popupWrapper.addClass('visible');
-
         }, 50);
 
         setTimeout(function() {
             popup.addClass('visible');
         }, 250);
-        debugger
 
     });
     $('.popup-dismiss').on('click', function() {
