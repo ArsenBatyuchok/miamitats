@@ -94,7 +94,7 @@ function sendEmail($message, $email){
     $mail = new PHPMailer();
     $mail->setFrom('alexandr.vasiliev@iqria.com');
     $mail->isHTML(true);
-    $mail->Subject = 'Here is the subject';
+    $mail->Subject = 'Продажа с сайта miamitats.com';
     $mail->Body    = $message;
     $mail->addCustomHeader("Content-Type: text/html; charset=utf-8");
     $mail->addAddress($email);
@@ -102,4 +102,6 @@ function sendEmail($message, $email){
 }
 sendEmail($message, 'alexandr.vasiliev@iqria.com');
 sendEmail($message, 'alexandr.sharygin@iqria.com');
+sendEmail($message, 'rsokolovski@me.com');
+sendEmail($message, 'abat@softserveinc.com');
 
