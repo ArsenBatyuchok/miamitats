@@ -1,5 +1,66 @@
 $(document).ready(function() {
 
+    $('#pay').click(function(){
+
+        var  quantityElements = [],
+            priceElements =[],
+            nameElements = [],
+            str = '';
+
+        $('div.order-item-quantity').each(function(index, element) {
+            quantityElements.push(+element.innerHTML);
+        });
+
+        $('div.order-item-price span').each(function(index, element) { // delete last element
+            priceElements.push(+element.innerHTML);
+        });
+
+        $('div.order-item-name span').each(function(index, element) {
+            nameElements.push(element.innerHTML);
+        });
+
+        for(var i=0; i<quantityElements.length; i++) {
+            str += '|' + nameElements[i] + '|' + quantityElements[i] + '|' + priceElements[i];
+        }
+
+        var fullname = $('input#name').val(),
+             email = $('input#email').val(),
+             phone = $('input#phone').val(),
+             country = $('input#country').val(),
+             city = $('input#city').val(),
+             street = $('input#street').val(),
+             postal = $('input#postal').val(),
+             deliveryType = $('select#deliveryType').val(),
+             typeOfDelivery = $('#deliveryCheckbox').is(":checked"),
+             pay = $('#cardCheckbox').is(":checked"),
+             data = {
+                fullname: fullname,
+                phone: phone,
+                country: country,
+                city: city,
+                street: street,
+                postal: postal,
+                str: str,
+                email: email,
+                deliveryType: deliveryType,
+                pay: pay,
+                typeOfDelivery: typeOfDelivery
+            };
+
+        $.ajax({
+            url: 'scripts/actionSend.php',
+            type: 'POST',
+            data: data,
+            success: function(result) {
+                alert(result);
+            },
+            error: function(result) {
+                alert(result);
+            }
+        });
+
+    });
+
     // Fullpage Initialization 
     $('#fullpage').fullpage({
 		scrollingSpeed: 600,
@@ -20,6 +81,24 @@ $(document).ready(function() {
     feed.run();
 
     var productArray = [];
+
+
+
+    $('input#deliveryCheckbox').click(function(){
+        var state = $('#deliveryCheckbox').is(":checked");
+        if (state) {
+            $('li#deliver').css('display', 'none');
+            var price = $('span.order-total-amount').text();
+            $('span.order-total-amount').text(parseInt(price)-600);
+        } else {
+            $('li#deliver').css('display', 'block');
+            var price = $('span.order-total-amount').text();
+
+            $('span.order-total-amount').text(parseInt(price)+600);
+        }
+    });
+
+
 
     $('.buy-btn').on('click', function() {
 
@@ -66,6 +145,12 @@ $(document).ready(function() {
                 var orderItemPriceAmount = $(this).closest('.order-item').find('.order-item-price-amount');
                 var newOrderItemPriceAmount = parseInt(productPrice) * newQuantity
                 orderItemPriceAmount.text(newOrderItemPriceAmount);
+                // adding total
+                var suma = 0;
+                $('div.order-item-price span').each(function(index, element) { // delete last element
+                    suma += parseInt(element.innerHTML);
+                });
+                $('.order-total-amount').text(suma);
 
             });
             widget.on('click', 'a.subtract', function () {
@@ -84,6 +169,13 @@ $(document).ready(function() {
                 var orderItemPriceAmount = $(this).closest('.order-item').find('.order-item-price-amount');
                 var newOrderItemPriceAmount = parseInt(productPrice) * newQuantity
                 orderItemPriceAmount.text(newOrderItemPriceAmount);
+                // subtracting total
+
+                var suma = 0;
+                $('div.order-item-price span').each(function(index, element) { // delete last element
+                    suma += parseInt(element.innerHTML);
+                });
+                $('.order-total-amount').text(suma);
             });
 
             orderList.prepend(widget);
@@ -98,7 +190,9 @@ $(document).ready(function() {
         var addExistingProduct = function() {
             appendName.append('<span class="product-item">, "' + productName + '"</span>');
             totalAmount = parseInt(appendPrice.text()) + productPrice;
+
             appendPrice.html(parseInt(totalAmount));
+
             //productPrice = totalAmount;
             addToOrderList();
         }
@@ -159,6 +253,13 @@ $(document).ready(function() {
         var dataPopupToggle = $(this).data('popup-toggle');
         var popupWrapper = $('.popup-wrapper[data-popup-index="' + dataPopupToggle + '"]');
         var popup = popupWrapper.find('.popup');
+
+        var suma = 0;
+        $('div.order-item-price span').each(function(index, element) { // delete last element
+            suma += parseInt(element.innerHTML);
+        });
+        $('.order-total-amount').text(suma);
+
         popupWrapper.addClass('active');
         setTimeout(function() {
             popupWrapper.addClass('visible');
