@@ -34,7 +34,6 @@ $(document).ready(function() {
              deliveryType = $('select#deliveryType').val(),
              typeOfDelivery = $('#deliveryCheckbox').is(":checked"),
              pay = $('#cardCheckbox').is(":checked"),
-             selectType = $('select#deliveryType').val(),
              data = {
                 fullname: fullname,
                 phone: phone,
@@ -46,8 +45,7 @@ $(document).ready(function() {
                 email: email,
                 deliveryType: deliveryType,
                 pay: pay,
-                typeOfDelivery: typeOfDelivery,
-                selectType: selectType
+                typeOfDelivery: typeOfDelivery
             };
 
         $.ajax({
@@ -55,7 +53,14 @@ $(document).ready(function() {
             type: 'POST',
             data: data,
             success: function(result) {
-                alert('send');
+                debugger
+                if (result.status == 'error') {
+                    alert('validation error');
+                } else {
+                    alert('send');
+                }
+
+
             },
             error: function(result) {
                 alert('error');

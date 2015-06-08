@@ -1,4 +1,5 @@
 <?php
+
 require 'vendor/autoload.php';
 $errors = [];
 
@@ -26,8 +27,8 @@ if (!preg_match('/^[0-9]{2,10}$/', $_REQUEST['postal'])) {
 }
 
 if ($_REQUEST['typeOfDelivery'] == 'false') {
-    if (empty($_REQUEST['selectType'])) {
-        $errors['selectType'] = 'Please enter delivery type';
+    if (empty($_REQUEST['deliveryType'])) {
+        $errors['deliveryType'] = 'Please enter delivery type';
     }
 }
 
@@ -40,19 +41,23 @@ foreach($_REQUEST as $key => &$value) {
         }
     }
 }
+
 if ($errors) {
+    $errors['status'] = 'error';
+    header('Content-type: application/json');
     echo json_encode($errors);
     exit;
 }
 $string = $_REQUEST['str'];
 $stringElements = explode('|', $string);
 
-//$delivery = ($_REQUEST['typeOfDelivery'] == 'true')? 'самовывоз': 'доставка';
+$typeDelivery = null;
+
 if ($_REQUEST['typeOfDelivery'] == 'true') {
     $delivery = 'самовывоз';
 } else {
     $delivery = 'доставка';
-    $typeDelivery = $_REQUEST['selectType'];
+    $typeDelivery = $_REQUEST['deliveryType'];
 }
 
 $pay = ($_REQUEST['pay'] == 'true')? 'оплата оффлайн' : 'оплата картой';
