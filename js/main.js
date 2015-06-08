@@ -52,10 +52,10 @@ $(document).ready(function() {
             type: 'POST',
             data: data,
             success: function(result) {
-                alert(result);
+                alert('send');
             },
             error: function(result) {
-                alert(result);
+                alert('error');
             }
         });
 
