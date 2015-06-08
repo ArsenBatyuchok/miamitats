@@ -249,10 +249,16 @@ $(document).ready(function() {
     });
     
     // Popup Code
+
     $('.popup-toggle').on('click', function() {
+
         var dataPopupToggle = $(this).data('popup-toggle');
         var popupWrapper = $('.popup-wrapper[data-popup-index="' + dataPopupToggle + '"]');
         var popup = popupWrapper.find('.popup');
+
+        popupWrapper.css("visibility", "visible");
+        popup.css("visibility", "visible");
+
 
         var suma = 0;
         $('div.order-item-price span').each(function(index, element) { // delete last element
@@ -261,12 +267,17 @@ $(document).ready(function() {
         $('.order-total-amount').text(suma);
 
         popupWrapper.addClass('active');
+
         setTimeout(function() {
             popupWrapper.addClass('visible');
+
         }, 50);
+
         setTimeout(function() {
             popup.addClass('visible');
         }, 250);
+        debugger
+
     });
     $('.popup-dismiss').on('click', function() {
         $('.popup-wrapper').removeClass('visible');

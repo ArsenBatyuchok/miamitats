@@ -1,4 +1,11 @@
 /* Fonts Declaration */
+.popup-wrapper{
+    visibility: hidden;
+
+}
+.popup{
+    visibility: hidden;
+}
 @font-face {
     font-family: 'bebas_neue_bold';
     src: url('../fonts/bebasneue_bold-webfont.eot');
